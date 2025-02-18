@@ -9,8 +9,6 @@ package nrghacks2025;
  *
  * @author ananya,joy,emily,claire
  */
-public class HelperClass1 {
-    public static void main(String[] args){
-        
-    }
+public class User {
+    
 }

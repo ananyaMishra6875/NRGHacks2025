@@ -9,7 +9,7 @@ package nrghacks2025;
  * @author ananya,joy,emily,claire
  */
 
-public class NRGHacks2025 {
+public class SoreStore {
     public static void main(String[] args) {
         
     }

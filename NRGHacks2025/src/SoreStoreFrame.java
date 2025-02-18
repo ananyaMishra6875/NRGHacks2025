@@ -9,6 +9,9 @@
  */
 
 import java.awt.CardLayout;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class SoreStoreFrame extends JFrame {
@@ -18,7 +21,7 @@ public class SoreStoreFrame extends JFrame {
     /**
      * Creates new form SoreStoreFrame
      */
-    public SoreStoreFrame() {
+    public SoreStoreFrame() throws IOException {
         initComponents();
 //        int panelBg = 0;
 //        JPanel panel = (panelBg == 0) ? new CalendarPanel() : new SurveyPanel();
@@ -100,7 +103,11 @@ public class SoreStoreFrame extends JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SoreStoreFrame().setVisible(true);
+                try {
+                    new SoreStoreFrame().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(SoreStoreFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

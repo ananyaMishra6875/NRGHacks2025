@@ -9,6 +9,7 @@
  */
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -21,15 +22,20 @@ public class SurveyPanel extends JPanel {
      */
     public SurveyPanel(SoreStoreFrame frame) {
         initComponents();
+        
+        setVisible(true);
         this.soreStoreFrame = frame;
-        JButton switchButton = new JButton("Skip");
-        switchButton.addActionListener(new ActionListener(){
+
+        jButton1.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.switchPanel("calendar");
             }
             
         });
+
+        
+        setVisible(true);
     }
 
     /**
@@ -42,6 +48,8 @@ public class SurveyPanel extends JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 204, 204));
 
         jButton1.setText("Skip");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +77,7 @@ public class SurveyPanel extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

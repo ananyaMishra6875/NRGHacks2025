@@ -22,19 +22,28 @@ public class SoreStoreFrame extends JFrame {
         initComponents();
 //        int panelBg = 0;
 //        JPanel panel = (panelBg == 0) ? new CalendarPanel() : new SurveyPanel();
+        setTitle("Sore Store");
+        setSize(600, 400); // Set frame size
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // Center the frame
+        setLayout(new CardLayout());
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
+        mainPanel.setLayout(cardLayout);
         
         mainPanel.add(new SurveyPanel(this),"survey");
         mainPanel.add(new CalendarPanel(this),"calendar");
-        
+        cardLayout.show(mainPanel,"survey");
         add(mainPanel);
         setVisible(true);
+        
         
     }
 
     public void switchPanel(String panelName){
         cardLayout.show(mainPanel,panelName);
+        setVisible(true);
+        mainPanel.repaint();
     }
     /**
      * This method is called from within the constructor to initialize the form.

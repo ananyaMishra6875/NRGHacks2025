@@ -23,18 +23,20 @@ public class Survey {
     public String[] chest = {"0chest","1chest","2chest","3chest","4chest","5chest"};
     
     public Survey(){
-        muscles.put("leftArm", 0);
-        muscles.put("rightArm",0);
-        muscles.put("leftLeg",0);
-        muscles.put("rightLeg",0);
+        muscles.put("larm", 0);
+        muscles.put("rarm",0);
+        muscles.put("lleg",0);
+        muscles.put("rleg",0);
         muscles.put("back",0);
-        muscles.put("abdominal",0);
+        muscles.put("abs",0);
         muscles.put("chest",0);
     }
     
-    public void updatePainLevel(String key){
+    public int updatePainLevel(String key){
         int painLevel = muscles.get(key);
         painLevel++;
+        //update the hash map
         muscles.replace(key, painLevel);
+        return painLevel;
     }
 }

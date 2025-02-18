@@ -12,27 +12,29 @@ package nrghacks2025;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import javax.swing.*;
+import javax.imageio.ImageIO;
 
 public class SurveyPanel extends JPanel {
     private SoreStoreFrame soreStoreFrame;
+    private Image absImage;
 
     /**
      * Creates new form SurveyPanel
      */
-    public SurveyPanel(SoreStoreFrame frame) {
+    public SurveyPanel(SoreStoreFrame frame) throws IOException {
         initComponents();
         
         setVisible(true);
         this.soreStoreFrame = frame;
-        
+
         jButton1.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,10 +42,18 @@ public class SurveyPanel extends JPanel {
             }
             
         });
-        Survey survey = new Survey();
-        setVisible(true);
-        int index = 0;
+
+        try {
+            // Load image from file or resources (adjust the path!)
+            absImage = ImageIO.read(new File("/Users/clairegao/NetBeansProjects/NRGHacks2025/NRGHacks2025/src/resources/images/0abs.png"));
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
+        
+        setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,7 +97,16 @@ public class SurveyPanel extends JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // Clear the panel first
+        if (absImage != null) {
+            // Draw the image to fill the entire panel
+            g.drawImage(absImage, 0, 0, getWidth(), getHeight(), this);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
+}

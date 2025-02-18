@@ -62,7 +62,7 @@ public class SurveyPanel extends javax.swing.JPanel implements MouseListener{
 //        rarmArea = new Rectangle(50, 25, 50, 50);
 //        llegArea = new Rectangle(50, 50, 100, 100);
 //        rlegArea = new Rectangle(60, 60, 100, 100);
-        
+       
         addMouseListener((MouseListener) this);
 
         jButton1.addActionListener(new ActionListener(){

@@ -1,5 +1,3 @@
-package nrghacks2025;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -7,7 +5,7 @@ package nrghacks2025;
 
 /**
  *
- * @author joykim
+ * @author clairegao
  */
 
 import java.awt.CardLayout;
@@ -22,16 +20,15 @@ import java.net.URL;
 import javax.swing.*;
 import javax.imageio.ImageIO;
 
-public class SurveyPanel extends JPanel {
+
+public class SurveyPanel extends javax.swing.JPanel {
     private SoreStoreFrame soreStoreFrame;
     private Image absImage;
-
     /**
      * Creates new form SurveyPanel
      */
-    public SurveyPanel(SoreStoreFrame frame) throws IOException {
+    public SurveyPanel(SoreStoreFrame frame) {
         initComponents();
-        
         setVisible(true);
         this.soreStoreFrame = frame;
 
@@ -55,6 +52,14 @@ public class SurveyPanel extends JPanel {
         setVisible(true);
     }
 
+        @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // Clear the panel first
+        if (absImage != null) {
+            // Draw the image to fill the entire panel
+            g.drawImage(absImage, 0, 0, getWidth(), getHeight(), this);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,31 +85,23 @@ public class SurveyPanel extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(298, Short.MAX_VALUE)
+                .addContainerGap(295, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(30, 30, 30))
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(250, Short.MAX_VALUE)
+                .addContainerGap(248, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(27, 27, 27))
+                .addGap(29, 29, 29))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g); // Clear the panel first
-        if (absImage != null) {
-            // Draw the image to fill the entire panel
-            g.drawImage(absImage, 0, 0, getWidth(), getHeight(), this);
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
